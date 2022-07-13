@@ -6,7 +6,6 @@ app = Flask (__name__)
 
 app.secret_key = 'abcde'
 
-
 @app.route ('/')
 @app.route ('/login', methods=['GET', 'POST'])
 def login():
