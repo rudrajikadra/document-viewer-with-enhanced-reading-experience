@@ -31,7 +31,6 @@
   color: #fff;
   padding: 1rem;
 }
-body{margin-top:20px;}
 
 .content-item {
     padding:30px 0;
@@ -161,4 +160,47 @@ body{margin-top:20px;}
 	font-size:15px;
 	margin-right:10px;
 }
+.vote_up_off {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url(' https://i.stack.imgur.com/nxBdX.png');
+  background-position: 0 -25px;
+  margin-left: 5px;
+}
 
+.vote_up_on {
+  background-position: 0 2px;
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url('https://i.stack.imgur.com/nxBdX.png');
+  margin-left: 5px;
+}
+
+.vote_down_off {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url('https://i.stack.imgur.com/vWw7n.png');
+  background-position: 0 -1px;
+  margin-top: 3px;
+}
+
+
+.vote_down_on {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url('https://i.stack.imgur.com/vWw7n.png');
+  background-position: 0 -28px;
+  margin-top: 3px;
+}

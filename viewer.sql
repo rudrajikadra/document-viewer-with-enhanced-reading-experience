@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2022 at 01:27 PM
+-- Generation Time: Jul 30, 2022 at 06:42 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -29,9 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `comments` (
   `cid` int(11) NOT NULL,
+  `date` varchar(100) NOT NULL,
   `doc_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `comment` text NOT NULL
+  `comment` text NOT NULL,
+  `votes` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -43,7 +45,23 @@ CREATE TABLE `comments` (
 CREATE TABLE `documents` (
   `did` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `owner_id` int(11) NOT NULL
+  `owner_id` int(11) NOT NULL,
+  `summary` longtext DEFAULT NULL,
+  `urls` longtext NOT NULL DEFAULT '[[]]'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reply`
+--
+
+CREATE TABLE `reply` (
+  `rid` int(11) NOT NULL,
+  `cid` int(11) NOT NULL,
+  `usid` int(11) NOT NULL,
+  `msg` text NOT NULL,
+  `date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -57,6 +75,18 @@ CREATE TABLE `user` (
   `uname` varchar(100) NOT NULL,
   `pass` varchar(255) NOT NULL,
   `company` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vote`
+--
+
+CREATE TABLE `vote` (
+  `cidv` int(11) NOT NULL,
+  `uidv` int(11) NOT NULL,
+  `val` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -73,8 +103,13 @@ ALTER TABLE `comments`
 -- Indexes for table `documents`
 --
 ALTER TABLE `documents`
-  ADD PRIMARY KEY (`did`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD PRIMARY KEY (`did`);
+
+--
+-- Indexes for table `reply`
+--
+ALTER TABLE `reply`
+  ADD PRIMARY KEY (`rid`);
 
 --
 -- Indexes for table `user`
@@ -82,6 +117,12 @@ ALTER TABLE `documents`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`uid`),
   ADD UNIQUE KEY `uname` (`uname`);
+
+--
+-- Indexes for table `vote`
+--
+ALTER TABLE `vote`
+  ADD PRIMARY KEY (`cidv`,`uidv`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -98,6 +139,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `documents`
   MODIFY `did` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `reply`
+--
+ALTER TABLE `reply`
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`

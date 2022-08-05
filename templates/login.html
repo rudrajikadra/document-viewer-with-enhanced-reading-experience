@@ -24,7 +24,9 @@
 
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                    <img src="{{url_for('static',filename='images/logo.jpeg')}}" alt="" width="200" height="40" class="d-inline-block align-text-top">
+                    <a class="navbar-brand" href={{url_for('index')}}>
+                      <img src="{{url_for('static',filename='images/logo.jpeg')}}" alt="" width="200" height="40" class="d-inline-block align-text-top">
+                    </a>
                   </div>
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
