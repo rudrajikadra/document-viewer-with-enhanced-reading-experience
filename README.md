@@ -16,8 +16,8 @@
   - [Scope](#scope) 
   - [UI](#ui)
   - [Features](#features)
-  - [Team Description](#team-description)
-  - [Code Breif Discription](#Code Breif Discription)
+  - [Team Managment](#team-management)
+  - [Code Brief Description](#Code-brief-description)
 
 ## Sections
 ### <h1> Document viewer with enhanced reading expierence </h1>
@@ -88,11 +88,11 @@ The goal of our project is to create a machine-learning assisted web application
 - Allow users to communicate and participate in discussions around the papers via a system where the healthiest post obtains the highest points. (StackOverflow like). Those discussions are visible to all users.  
 - Providing explanations and hyperlinks when cursor hovering over highlighted terms and  mentions.
 
-### Team management
+### Team Management
  - For team managment and work distribution we use Agile frame work and Teams to conduct most of team meeting (fornightly).
  - For keep on updating our key feature we use google docs and teams file sharing.
  - Use Github for repo to keep control of version controlling and share code among team mates.
 
-### Code Brief Discription
+### Code Brief Description
 In this brief discription of each code files has been discuss
 - 
