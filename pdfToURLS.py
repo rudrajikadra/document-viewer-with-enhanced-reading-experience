@@ -53,10 +53,10 @@ def pdfToUrls(doc):
                 "keyWords": eachPageKW_dict
             }
     except:
-        mainDictionary = "{}"
+        mainDictionary = {}
 
 
-    return str(mainDictionary)
+    return mainDictionary
 
 
 

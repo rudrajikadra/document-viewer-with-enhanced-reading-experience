@@ -3,8 +3,9 @@ from mysqlconn import mydb
 from datetime import date
 from pdfToSummary import pdfToSummary as ps
 from pdfToURLS import pdfToUrls as pu
-from highlight import highlightOnPDF as highlight
+from highlight import highlightOnPDF as hi
 import os, json
+
 
 
 app = Flask (__name__)
@@ -50,6 +51,7 @@ def login():
         if result:
             session['loggedin'] = True
             session['id'] = result[0]
+            session['highlight'] = False
             session['username'] = result[1]
             return redirect(url_for('company',id = session['id'] ))
         else:
@@ -115,7 +117,7 @@ def dashboard(id):
             file.save(os.path.join('static/pdf', name))
         print("y")
 
-        highLit = highlight(name)
+        highLit = hi(name)
         
         summary = ps(name)
         url = json.dumps(pu(name))
@@ -251,6 +253,16 @@ def vote():
 
     return jsonify (data)
 
+
+@app.route ('/highlight/<id>/<did>', methods=['GET', 'POST'])
+def highlight(id, did):
+    print(session)
+    if session['highlight']:
+        session['highlight'] = False
+    else:
+        session['highlight'] = True
+
+    return redirect (url_for ('viewer', id=id, did=did))
 
 if __name__ == "__main__":
     app.run (debug=True)

@@ -138,12 +138,10 @@
                 
                 <div id = "urlID" style="display: none">
                 <h3>Urls</h3>
-                <div id ="url" style="max-height:75vh;max-width:105vh;overflow: scroll;">
-                    {% set count = namespace(value=0) %}
-                    {% for page in urllist %}
-                    {% set count.value = count.value + 1 %}
-                    <ul id = "url{{count.value}}" style="display: none">
-                        {% for links in page %}
+                <div id ="url" style="max-height:75vh;max-width:60vh;overflow: scroll;overflow-wrap: break-word;">
+                    {% for page, x in urllist.items() %}
+                    <ul id = "url{{page}}" style="display: none">
+                        {% for links in x['url'] %}
                         <li>  <a href ='{{links}}'> {{links}}</a></li>
                         {% endfor %}
                     </ul>
@@ -411,7 +409,22 @@ function dislike_function(answer_id) {
  </script>
 
  <script>
- const url = "{{url_for('static',filename='pdf/'+result[1])}}"
+
+    var y = document.getElementById("hiIdButton");
+    var url
+    {% if session['highlight'] == True %}
+    y.value = "Hide Keyword Highlights"
+    y.className = "primary-button clickedButton"
+
+    url = "{{url_for('static',filename='highlighted_pdf/'+result[1])}}"
+    {% else %}
+    y.value === "Show Keyword Highlights"
+    y.className = "primary-button"
+
+    url = "{{url_for('static',filename='pdf/'+result[1])}}"
+    {% endif %}
+
+ // const url = "{{url_for('static',filename='pdf/'+result[1])}}"
 let pdfDoc = null,
   pageNum = 1,
   pageIsRendering = false,
@@ -438,22 +451,10 @@ function showSummary() {
   }
 }
 
+
+
 function showHighlights() {
-   var y = document.getElementById("hiIdButton");
-  if (y.value === "Show Keyword Highlights") {
-    y.value = "Hide Keyword Highlights"
-    y.className = "primary-button clickedButton"
-
-    ////////////////////////////////////////////////////////////       Here show the highlighted pdf
-    
-
-  } else {
-    y.value = "Show Keyword Highlights"
-    y.className = "primary-button"
-
-    ////////////////////////////////////////////////////////////       Here show the original pdf without highlights
-
-  }
+    window.location.href = "{{url_for('highlight',id=id,did=did) }}";
 }
 
 
@@ -513,6 +514,8 @@ const queueRenderPage = num => {
     renderPage(num);
   }
 };
+
+
 
 // Show Prev Page
 const showPrevPage = () => {
