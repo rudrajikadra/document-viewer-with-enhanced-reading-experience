@@ -7,6 +7,7 @@ from urlToPDF import urlToPDF as up
 from highlight import highlightOnPDF as hi
 import os, json
 
+
 app = Flask (__name__)
 
 app.secret_key = 'secret'

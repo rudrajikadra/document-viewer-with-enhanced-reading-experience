@@ -138,7 +138,7 @@
                     {% for page, x in urllist.items() %}
                     <ul id = "url{{page}}" style="display: none">
                         {% for links in x['url'] %}
-                        <li>  <a href ='{{links}}'> {{links}}</a></li>
+                        <li>  <a href ='{{links}}' target="_blank"> {{links}}</a></li>
                         {% endfor %}
                     </ul>
                     {% endfor %}
