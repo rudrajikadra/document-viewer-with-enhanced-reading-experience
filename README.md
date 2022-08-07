@@ -7,114 +7,59 @@
 ## Table of Contents
 
 - [Sections](#sections)
-  - [Title](#title)
   - [Short Description](#short-description)
-  - [Background](#background)
   - [Install](#install)
   - [Usage](#usage)
-  - [Thanks](#thanks)
+  - [Update](#update)
   - [Contributing](#contributing)
 - [Documentation](#documentation)
   - [Scope](#scope) 
   - [UI](#ui)
   - [Features](#features)
-  - [Database](#database)
-  - [Machine Learning](#machine_learning)
+  - [Team Description](#team-description)
+  - [Code Breif Discription](#Code Breif Discription)
 
 ## Sections
+### <h1> Document viewer with enhanced reading expierence </h1>
 
-### Title
-### Document viewer with enhanced reading expirence 
-**Status:** Required.
 
-**Requirements:**
-- Title must match repository, folder and package manager names - or it may have another, relevant title with the repository, folder, and package manager title next to it in italics and in parentheses. For instance:
+## Short Description 
+ This project is web based application use for increasing user expirence while reading any new paper articles. 
+ comprises of many features as mention below 
 
-  ```markdown
-  # Standard Readme Style _(standard-readme)_
-  ```
+- <b>short summary </b>
+   - In this using machine learning based technique and text analysis.
+- <b> highlighting keywords </b>
+   - Trained model library is used for  extracting important keywords and also highlight them in pdf with specific color. 
+- <b> discusiion forum </b>
+   - Also provide the discussion forum for user to dicuss among the topics for any articles related.
 
-  If any of the folder, repository, or package manager names do not match, there must be a note in the [Long Description](#long-description) explaining why.
 
-**Suggestions:**
-- Should be self-evident.
+### Install 
 
-### Short Description
-**Status:** Required.
+using the pip command to install all of the requirements packages  for application 
+``` bash
+$ pip install -r requirements.txt
+```
+Also need to install the mySQL database and optionally Apache server ( to see database in browser ).
 
-**Requirements:**
-- Must not have its own title.
-- Must be less than 120 characters.
-- Must not start with `> `
-- Must be on its own line.
-- Must match the description in the packager manager's `description` field.
-- Must match GitHub's description (if on GitHub).
 
-**Suggestions:**
-- Use [gh-description](https://github.com/RichardLitt/gh-description) to set and get GitHub description.
-- Use `npm show . description` to show the description from a local [npm](https://npmjs.com) package.
+### Usage 
 
-### Background
-**Status:** Optional.
+To run application ,first step need to done is to run app.py file in python CLI .
+``` bash 
+python app.py
+```
+This will give you the localhost url for the website start page 
+After this user can use the website smoothly.
 
-**Requirements:**
-- Cover motivation.
-- Cover abstract dependencies.
-- Cover intellectual provenance: A `See Also` section is also fitting.
 
-### Install
-**Status:** Required by default, optional for [documentation repositories](#definitions).
-
-**Requirements:**
-- Code block illustrating how to install.
-
-**Subsections:**
-- `Dependencies`. Required if there are unusual dependencies or dependencies that must be manually installed.
-
-**Suggestions:**
-- Link to prerequisite sites for programming language: [npmjs](https://npmjs.com), [godocs](https://godoc.org), etc.
-- Include any system-specific information needed for installation.
-- An `Updating` section would be useful for most packages, if there are multiple versions which the user may interface with.
-
-### Usage
-**Status:** Required by default, optional for [documentation repositories](#definitions).
-
-**Requirements:**
-- Code block illustrating common usage.
-- If CLI compatible, code block indicating common usage.
-- If importable, code block indicating both import functionality and usage.
-
-**Subsections:**
-- `CLI`. Required if CLI functionality exists.
-
-**Suggestions:**
-- Cover basic choices that may affect usage: for instance, if JavaScript, cover promises/callbacks, ES6 here.
-- If relevant, point to a runnable file for the usage code.
-
-### Thanks
-**Status**: Optional.
-
-**Requirements:**
-- Must be called `Thanks`, `Credits` or `Acknowledgements`.
-
-**Suggestions:**
-- State anyone or anything that significantly helped with the development of your project.
-- State public contact hyper-links if applicable.
+### Update
+In this versioning of our base application take place and also keep on updating our main key features. 
 
 ### Contributing
-**Status**: Required.
-
-**Requirements:**
-- State where users can ask questions.
-- State whether PRs are accepted.
-- List any requirements for contributing; for instance, having a sign-off on commits.
-
-**Suggestions:**
-- Link to a CONTRIBUTING file -- if there is one.
-- Be as friendly as possible.
-- Link to the GitHub issues.
-- Link to a Code of Conduct. A CoC is often in the Contributing section or document, or set elsewhere for an entire organization, so it may not be necessary to include the entire file in each repository. However, it is highly recommended to always link to the code, wherever it lives.
-- A subsection for listing contributors is also welcome here.
+Links Contributing 
+- python text analysis (https://www.analyticsvidhya.com/blog/2018/02/the-different-methods-deal-text-data-predictive-python/)
 
 
 ## Documentation
@@ -143,6 +88,11 @@ The goal of our project is to create a machine-learning assisted web application
 - Allow users to communicate and participate in discussions around the papers via a system where the healthiest post obtains the highest points. (StackOverflow like). Those discussions are visible to all users.  
 - Providing explanations and hyperlinks when cursor hovering over highlighted terms and  mentions.
 
-### Database
+### Team management
+ - For team managment and work distribution we use Agile frame work and Teams to conduct most of team meeting (fornightly).
+ - For keep on updating our key feature we use google docs and teams file sharing.
+ - Use Github for repo to keep control of version controlling and share code among team mates.
 
-### Machine Learning
+### Code Brief Discription
+In this brief discription of each code files has been discuss
+- 
