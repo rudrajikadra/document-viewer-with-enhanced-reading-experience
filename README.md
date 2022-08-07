@@ -41,7 +41,7 @@ using the pip command to install all of the requirements packages  for applicati
 ``` bash
 $ pip install -r requirements.txt
 ```
-Also need to install XAMPP Server application to start mySQL Database and optionally Apache Server to view the database in browser.
+Also need to install the mySQL database and optionally Apache server ( to see database in browser ).
 
 
 ### Usage 
@@ -95,4 +95,15 @@ The goal of our project is to create a machine-learning assisted web application
 
 ### Code Brief Description
 In this brief discription of each code files has been discuss
-- 
+- app.py
+  > This is main flask file of our application, from which our application run on web server. 
+- pdfToSummary.py
+  > In this code get short summary from the whole text file pdf by using  NLp(Natural Language procesing) and machine learning.
+- highlight.py
+  > In this code mainly highlighting the keywords among the whole pdf by using Text analysis.
+- mysqlconn.py
+  > this file is key to connect application to the sql server.
+- pdftoURLS.py
+  > By using this file we ellobrate the url among the pdf context and give url as output for user further information.
+- urlToPDF.py
+  > IN this file we input the URL link and generate the pdf as ouput so that pdf can be use for further feature as summary and highlights.
