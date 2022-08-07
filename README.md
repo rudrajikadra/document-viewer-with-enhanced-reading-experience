@@ -41,7 +41,7 @@ using the pip command to install all of the requirements packages  for applicati
 ``` bash
 $ pip install -r requirements.txt
 ```
-Also need to install the mySQL database and optionally Apache server ( to see database in browser ).
+Also need to install XAMPP Server application to start mySQL Database and optionally Apache Server to view the database in browser.
 
 
 ### Usage 
