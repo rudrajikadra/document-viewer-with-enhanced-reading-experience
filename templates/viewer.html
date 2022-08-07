@@ -116,22 +116,18 @@
 
             <div id="top_div" style="height: 50%;">
                 <h3>Keywords</h3>
-                
-                
-                <button class="primary-button">dfkh dfdu fuyd iu </button>
-                <button class="primary-button">dfkh dsiufhgsd iu </button>
-                <button class="primary-button">s iu </button>
-                <button class="primary-button">App </button>
-                <button class="primary-button">App </button>
-                <button class="primary-button">s iu </button>
-                <button class="primary-button">dfkh dfdu fuyd iu </button>
-                <button class="primary-button">App </button>
-                <button class="primary-button">s iu </button>
-                <button class="primary-button">dfkh dsiufhgsd iu </button>
-                <button class="primary-button">dfkh dsiufhgsd iu </button>
-                <button class="primary-button">dfkh dfdu fuyd iu </button>
+                <div id = keyword>
 
-            </div> 
+                {% for page, x in urllist.items() %}
+                    <ul id = "keyword{{page}}" style="display: none">
+                        {% for key, value in x['keyWords'].items() %}
+                        <a href ='{{value}}' target="_blank"><button class="primary-button"> {{key}}</button></a>
+                        {% endfor %}
+                    </ul>
+
+                {% endfor %}
+            </div>
+            </div>
 
             <div id="bottom_div">
                 <input type="button" name="answer" value="Show Urls" class = "primary-button" id="urlIdButton" onclick="showUrl()" />
@@ -531,8 +527,10 @@ const showPrevPage = () => {
 
        if ({{c.values}} == pageNum) {
         document.getElementById("url{{c.values}}").style.display = "block";
+         document.getElementById("keyword{{c.values}}").style.display = "block";
       } else {
         document.getElementById("url{{c.values}}").style.display  = "none";
+         document.getElementById("keyword{{c.values}}").style.display = "none";
       }
 
 
@@ -554,8 +552,10 @@ const showNextPage = () => {
 
        if ({{c.values}} == pageNum) {
         document.getElementById("url{{c.values}}").style.display = "block";
+         document.getElementById("keyword{{c.values}}").style.display = "block";
       } else {
         document.getElementById("url{{c.values}}").style.display  = "none";
+        document.getElementById("keyword{{c.values}}").style.display = "none";
       }
 
 
@@ -578,8 +578,10 @@ pdfjsLib
 
        if ({{c.values}} == pageNum) {
         document.getElementById("url{{c.values}}").style.display = "block";
+        document.getElementById("keyword{{c.values}}").style.display = "block";
       } else {
         document.getElementById("url{{c.values}}").style.display  = "none";
+        document.getElementById("keyword{{c.values}}").style.display = "none";
       }
 
 

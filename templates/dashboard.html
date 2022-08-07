@@ -54,6 +54,16 @@
                 <button type="submit" class="btn btn-primary mb-3">Upload</button>
             </div>
         </form>
+        <h3 style="text-align: center;"> ----------------- OR ----------------- </h3>
+        <form action="{{url_for('dashboard',id=id)}}" class = form method ="post" >
+            <div class="mb-3 col-auto">
+              <label for="urlfile" class="form-label">Enter Url</label>
+              <input class="form-control" type="text" id="urlfile" name="urlfile">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">submit</button>
+            </div>
+        </form>
 
     </div>
     <div class="container">

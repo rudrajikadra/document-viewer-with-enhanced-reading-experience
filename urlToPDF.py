@@ -3,6 +3,7 @@ import sys
 import textwrap
 import random
 from fpdf import FPDF
+from trafilatura.settings import use_config
 
 
 def text_to_pdf(text, filename):
@@ -31,14 +32,20 @@ def text_to_pdf(text, filename):
 			pdf.cell(0, fontsize_mm, wrap, ln=1)
 
 	pdf.output(filename, 'F')
+	return True
 
 
 def urlToPDF(url):
 	
 	url = str(url)
+
+	config = use_config()
+	config.set("DEFAULT", "EXTRACTION_TIMEOUT", "0")
+
 	urlContent = trafilatura.fetch_url(url)
 
-	result = trafilatura.extract(urlContent, include_comments=False, include_tables=False, no_fallback=True)
+	result = trafilatura.extract(urlContent, config=config, include_comments=False, include_tables=False, no_fallback=True)
+	
 	try:
 		title = str(trafilatura.extract_metadata(urlContent).title).replace(" ", "_").replace("\"", "").replace("\/", "").replace("\\","").replace("'", "")
 	except:
@@ -47,7 +54,11 @@ def urlToPDF(url):
 	title += ".pdf"
 	fileNamePDF = "static//pdf//" + title
 
-	text_to_pdf(result, fileNamePDF)
+	checker = text_to_pdf(result, fileNamePDF)
+	if checker:
+		return str(title)
+	else:
+		return ""
 
 
 # urlToPDF("https://www.oracle.com/au/what-is-data-science/")

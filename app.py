@@ -3,6 +3,7 @@ from mysqlconn import mydb
 from datetime import date
 from pdfToSummary import pdfToSummary as ps
 from pdfToURLS import pdfToUrls as pu
+from urlToPDF import urlToPDF as up
 from highlight import highlightOnPDF as hi
 import os, json
 
@@ -110,12 +111,16 @@ def dashboard(id):
         return redirect(url_for('page_not_found' ))
 
     if request.method == 'POST':
-        file = request.files['pdf']
-        name = file.filename
-        if not os.path.exists ('static/pdf/'+name):
-            print("x")
-            file.save(os.path.join('static/pdf', name))
-        print("y")
+        
+        if request.files:
+            file = request.files['pdf']
+            name = file.filename
+            if not os.path.exists ('static/pdf/'+name):
+                file.save(os.path.join('static/pdf', name))
+        elif request.form['urlfile']:
+            urlfile = request.form['urlfile']
+            print("&&&****", urlfile)
+            name = up(str(urlfile))
 
         highLit = hi(name)
         
