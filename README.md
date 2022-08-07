@@ -37,6 +37,8 @@
 
 ### Install 
 
+Ideally runs perfectly on Python 3.9.7 with the dependencies listed in requirements.txt file.
+
 using the pip command to install all of the requirements packages  for application 
 ``` bash
 $ pip install -r requirements.txt
