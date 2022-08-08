@@ -16,7 +16,6 @@ A web based application that converts passive reading experience of articles int
 ## Table of Contents
 
 - [Sections](#sections)
-  - [Short Description](#short-description)
   - [Install](#install)
   - [Usage](#usage)
   - [Update](#update)
@@ -87,42 +86,10 @@ In this versioning of our base application take place and also keep on updating 
 - Trafilatura [https://trafilatura.readthedocs.io/en/latest/usage-python.html ] : For extracting test from URLs
 - Fpdf [ https://pyfpdf.readthedocs.io/en/latest/]: For converting text to PDF
 
-## Project Documentation
-### Contributors
+## Contributors
 ``` bash 
-- Rudra Jikandra : Front End, Back End, Integration                         (26.66% Contribution)
-- Shridhar Prabhuraman : Back End, Integration, Live Configuration          (26.66% Contribution)
-- Vibhu Sharma : Summary Generation, Keyword Extraction and all ML features (26.66% Contribution)
+- Rudra Jikandra : Front End, Back End, Integration                         (26.67% Contribution)
+- Shridhar Prabhuraman : Back End, Integration, Live Configuration          (26.67% Contribution)
+- Vibhu Sharma : Summary Generation, Keyword Extraction and all ML features (26.67% Contribution)
 - Yui Chan : Highlighting Feature, Documentation                            (20.00% Contribution)
 ```
-
-### Scope
-The goal of our project is to create a machine-learning assisted web application that improves news & research article reading for users by providing them features which involve document editing, commenting and sharing with in a private space,along with automatic summarization of text,thereby augmenting a shift from a passive reading process to an interactive and collaborative experience.  
-
-### Features
-- Allow users to register and login their account.  
-- Allow users to upload files locally and view them on the website.  
-- Allow users to obtain a summary of the paper through Machine learning and text analysis.  
-- Automatically highlight important terms in the paper through ML.  
-- Allow users to communicate and participate in discussions around the papers via a system where the healthiest post obtains the highest points. (StackOverflow like). Those discussions are visible to all users.  
-- Providing explanations and hyperlinks when cursor hovering over highlighted terms and  mentions.
-
-### Team Management
- - For team managment and work distribution we use Agile frame work and Teams to conduct most of team meeting (fornightly).
- - For keep on updating our key feature we use google docs and teams file sharing.
- - Use Github for repo to keep control of version controlling and share code among team mates.
-
-### Code Brief Description
-In this brief discription of each code files has been discuss
-- app.py
-  > This is main flask file of our application, from which our application run on web server. 
-- pdfToSummary.py
-  > In this code get short summary from the whole text file pdf by using  NLp(Natural Language procesing) and machine learning.
-- highlight.py
-  > In this code mainly highlighting the keywords among the whole pdf by using Text analysis.
-- mysqlconn.py
-  > this file is key to connect application to the sql server.
-- pdftoURLS.py
-  > By using this file we ellobrate the url among the pdf context and give url as output for user further information.
-- urlToPDF.py
-  > In this file we input the URL link and generate the pdf as ouput so that pdf can be use for further feature as summary and highlights.
