@@ -14,11 +14,11 @@ A web based application that converts passive reading experience of articles int
 
 
 ## Table of Contents  
-- [Code Structure] (#Code Structure)
-- [Install]
-- [Usage]
-- [References to key external packages used]
-- [Contributors]
+- [Code Structure](#code-structure)
+- [Install](#install)
+- [Usage](#usage)
+- [References](#references)
+- [Contributors](#contributors)
 
 ### Code Structure
 ``` bash
@@ -77,7 +77,7 @@ python app.py
 ```
 This will start flask and give you the localhost url for the webapp, use the same to load the webapp.
 
-### References to key external packages used
+### References
 - Multirake Python Package [(https://pypi.org/project/multi-rake/)] : For Extracting Keywords
 - Trafilatura [https://trafilatura.readthedocs.io/en/latest/usage-python.html ] : For extracting test from URLs
 - Fpdf [ https://pyfpdf.readthedocs.io/en/latest/]: For converting text to PDF
