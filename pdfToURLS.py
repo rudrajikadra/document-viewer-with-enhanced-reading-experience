@@ -9,6 +9,7 @@ from multi_rake import Rake
 import random
 
 
+# Find urls from the entire text of each page of the pdf
 def Find(string):
     # findall() has been used 
     # with valid conditions for urls in string
@@ -17,7 +18,7 @@ def Find(string):
     return [x[0] for x in url]
 
 
-
+# This is the main function call that takes file name as input and generates all the urls and keywords with their google links
 def pdfToUrls(doc):
     try:
         reader = PdfReader("static//pdf//" + doc)
@@ -34,6 +35,7 @@ def pdfToUrls(doc):
             for eachURL in urlList:
                 pageContent.replace(str(eachURL), " ")
             
+            # Rake is used to identify all the keywords and getting top 10 random keywords to generate google search links
             rake = Rake()
             keywords = rake.apply(pageContent)
             updatedKeyWords = [k[0].replace("'", "").replace("\"", "") for k in keywords if k[1] >= 2.0]
@@ -56,6 +58,8 @@ def pdfToUrls(doc):
         mainDictionary = {}
 
 
+    # Returns a dictionery that has key as page number and value as another dictionery containing url list of that page 
+    # and keywords dictionery with their google search links
     return mainDictionary
 
 

@@ -12,28 +12,31 @@ app = Flask (__name__)
 
 app.secret_key = 'secret'
 
-
+# Deault Redirect to Home page of the website that is index.html
 @app.route ('/')
 @app.route ('/index')
 def index():
     return render_template ("index.html")
 
-
+# Redirect of services link to service.html page
 @app.route ('/services')
 def services():
     return render_template ("service.html")
 
 
+# Redirect of pricing link to pricing.html page
 @app.route ('/pricing')
 def pricing():
     return render_template ("pricing.html")
 
 
+# Redirect of Contact Us link to contact.html page
 @app.route ('/contact')
 def contact():
     return render_template ("contact.html")
 
 
+# Implementing login route for Get and Post request to login the customer with their id and password
 @app.route ('/login', methods=['GET', 'POST'])
 def login():
 
@@ -48,8 +51,10 @@ def login():
         cur.execute (sql, val)
         result = cur.fetchone ()
 
-        print(result)
+        # print(result)
         
+        # When the user is successfully loggedin, create a sessions  variable with the user contents \
+        # that will be used throughout the user session interacting with the website.
         if result:
             session['loggedin'] = True
             session['id'] = result[0]
@@ -62,7 +67,7 @@ def login():
 
     return render_template ("login.html", msg=msg)
 
-
+# Implementing the register route for flask with Get and post request to register a new user with a valid company code.
 @app.route ('/register', methods=['GET', 'POST'])
 def signup():
     msg = ""
@@ -86,6 +91,7 @@ def signup():
         return render_template ("signup.html", msg=msg)
 
 
+# Creating a logout route that clears out the session variables and redirects to the login page
 @app.route('/logout')
 def logout():
     session.pop('loggedin', None)
@@ -96,36 +102,37 @@ def logout():
     return redirect(url_for('login' ))
 
 
+# Redirect to page not found page upon bad url request
 @app.route('/page-not-found')
 def page_not_found():
     return render_template ("404.html")
 
 
+
+# Implementing Dashboard (My Uploads) route that displays user uploads and let's user upload a pdf or submit a link that will be converted to pdf
 @app.route ('/dashboard/<id>', methods=['GET', 'POST'])
 def dashboard(id):
-
-    print("&&&****************** ", session)
 
     if session.get('loggedin') is None:
         return redirect(url_for('login'))
         #abort(401)
 
     if int(id) != session['id']:
-        #print(id,session['id'])
-
         #abort (404)
         return redirect(url_for('page_not_found' ))
 
     if request.method == 'POST':
         
+        # If a pdf file is submitted then it will save the pdf to pdfs folder
         if request.files:
             file = request.files['pdf']
             name = file.filename
             if not os.path.exists ('static/pdf/'+name):
                 file.save(os.path.join('static/pdf', name))
+
+        # If a url is submitted then it will get the context of the url body convert into pdf then store that pdf to the pdfs folder
         elif request.form['urlfile']:
             urlfile = request.form['urlfile']
-            print("&&&****", urlfile)
             name = up(str(urlfile))
 
         highLit = hi(name)
@@ -133,6 +140,8 @@ def dashboard(id):
         summary = ps(name)
         url = json.dumps(pu(name))
         cur = mydb.cursor()
+
+        # Insert the newly uploaded pdf to the database
         sql = "INSERT INTO documents (name,owner_id,summary,urls) VALUES (%s, %s,%s,%s)"
         val = (name,  id, summary, url)
         cur.execute (sql, val)
@@ -147,6 +156,7 @@ def dashboard(id):
     return render_template ("dashboard.html", id=id, result = result)
 
 
+# Implementing Company (My Team) route that displays all the pdfs that are uploaded by all team members of that particular team
 @app.route ('/company/<id>', methods=['GET', 'POST'])
 def company(id):
 
@@ -169,6 +179,7 @@ def company(id):
     return render_template("company.html", id=id, result = result)
 
 
+# Redirect from documents when a user clicks on a particular pdf, get all the required data from the databse and pass it to the html file for diaply in viewer.html
 @app.route ('/dashboard/<id>/<did>', methods=['GET', 'POST'])
 def viewer(id, did):
     if session.get ('loggedin') is None:
@@ -176,8 +187,6 @@ def viewer(id, did):
         #abort (401)
 
     if int (id) != session['id']:
-        #print (id, session['id'])
-
         #abort (404)
         return redirect(url_for('page_not_found' ))
 
@@ -187,6 +196,7 @@ def viewer(id, did):
     result = cur.fetchone ()
     x = json.loads(result[4])
 
+    # Insert a new discussion thread when a user posts a new comment
     if request.method == 'POST':
 
         comment = request.form['message']
@@ -198,6 +208,7 @@ def viewer(id, did):
         #redirect(url_for('dashboard',id = session['id'] ,did =did))
 
 
+    # Get all the necessary data to pass to the pdf viewer
     cur = mydb.cursor ()
     sql = "select cid,date,doc_id,user_id,comment,votes,uname from comments join user where user_id = uid and doc_id = " + str(did) + " ORDER BY votes Desc,date Asc;"
     cur.execute (sql)
@@ -219,6 +230,7 @@ def viewer(id, did):
     return render_template ("viewer.html", id=id, did=did,result = result,result2=result2,length = len(result2), result3=result3, result4=result4, urllist=x)
 
 
+# Nested reply to discussion thread is stored in reply table in the database
 @app.route ('/reply/<id>/<did>/<cid>', methods=['GET', 'POST'])
 def reply(id, did,cid):
 
@@ -233,6 +245,7 @@ def reply(id, did,cid):
     return redirect (url_for ('viewer', id=id, did=did))
 
 
+# Voting system route for each discussion threads that will happen dynamically in the backgroynd using ajax in the html file
 @app.route ('/vote', methods=['GET', 'POST'])
 def vote():
 
@@ -266,6 +279,7 @@ def vote():
     return jsonify (data)
 
 
+# Route for displaying Highlighted keywords in the pdf when the user clicks on show keywords highlights
 @app.route ('/highlight/<id>/<did>', methods=['GET', 'POST'])
 def highlight(id, did):
     print(session)
@@ -276,6 +290,9 @@ def highlight(id, did):
 
     return redirect (url_for ('viewer', id=id, did=did))
 
+
+# This is where the magic happens
+# Running the entire Flask Application
 if __name__ == "__main__":
     app.run (debug=True)
 

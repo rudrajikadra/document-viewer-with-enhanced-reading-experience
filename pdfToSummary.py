@@ -1,6 +1,3 @@
-##### Usage: python pdfToSummary.py input.pdf outputSummary.txt
-
-
 from nltk.corpus import stopwords
 from nltk.cluster.util import cosine_distance
 import numpy as np
@@ -10,7 +7,7 @@ from PyPDF2 import PdfReader
 import re
 
 
-
+# This function takes the entire text and preprocesses it with splitting into sentences.
 def read_article(content):
     article = content.strip().replace("  ", " ").split(".")
     
@@ -33,6 +30,7 @@ def read_article(content):
     return sen
 
 
+# This function will identify the correlation between two sentences and finds the cosine similarity between them.
 def sentence_similarity(sent1, sent2, stopwords=None):
     
     if stopwords is None:
@@ -58,8 +56,8 @@ def sentence_similarity(sent1, sent2, stopwords=None):
  
     return 1 - cosine_distance(vector1, vector2)
 
-####### apply cosin similarity over all the data to collect most important words for each sentence,
- 
+
+# Applying cosin similarity over all the data to collect most important words for each sentence
 def build_similarity_matrix(sentences, stop_words):
     similarity_matrix = np.zeros((len(sentences), len(sentences)))
  
@@ -72,6 +70,7 @@ def build_similarity_matrix(sentences, stop_words):
     return similarity_matrix
 
 
+# This will then generate the entire summary using the key sentences found using the function build_similarity_matrix
 def generate_summary(fileContent,f=8):
     
     stop_words = stopwords.words('english')
@@ -95,14 +94,10 @@ def generate_summary(fileContent,f=8):
 
     finalSummary = ". ".join(summarize_text)
 
-
-    ### Save to file
-    # with open(str("temporary_pdfToSum_Result.txt"), 'w') as f1 :
-    #     f1.write(finalSummary)
-    # print(finalSummary)
     return str(finalSummary)
 
 
+# This is the main file call function that will take file name as input and returns the generated text summary
 def pdfToSummary(name):
     try:
         doc = "static//pdf//" + str(name)

@@ -6,6 +6,7 @@ from fpdf import FPDF
 from trafilatura.settings import use_config
 
 
+# Converting text extracted from the url to pdf using customised font formatting
 def text_to_pdf(text, filename):
 	a4_width_mm = 210
 	pt_to_mm = 0.35
@@ -35,6 +36,8 @@ def text_to_pdf(text, filename):
 	return True
 
 
+# Extracting context from the url body and scraping only the key components from the website url using trafilatura library 
+# and converting that to pdf file using text_to_pdf function
 def urlToPDF(url):
 	
 	try:

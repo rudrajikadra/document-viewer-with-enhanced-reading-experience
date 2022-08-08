@@ -14,6 +14,8 @@ from PyPDF2.generic import (
     ArrayObject
 )
 
+
+# Create highlight rectangles within the pdf
 # x1, y1 starts in bottom left corner
 def createHighlight(x1, y1, x2, y2, meta, color = [1, 1, 0]):
     newHighlight = DictionaryObject()
@@ -56,9 +58,11 @@ def addHighlightToPage(highlight, page, output):
         page[NameObject("/Annots")] = ArrayObject([highlight_ref])
 
 
+
+# Main function that gets called.
+# It accepts the pdf file name and generates its text and using multi_rake it identifies the keywords in the document
+# These keywords are then used to highlight in the pdf and save as a new pdf
 def highlightOnPDF(file): 
-# file = fileName.pdf that is inside pdf folder
-# listOfWords = "wordA, wordB, wordC"
 
     fileName = "static//pdf//" + str(file)
 
@@ -106,7 +110,7 @@ def highlightOnPDF(file):
 
         pdfOutput.addPage(page1)
 
-
+    # Save the newly created pdf with highlights inside the highlighted_pdf folder
     outputFile = "static//highlighted_pdf//" + str(file)
     outputStream = open(outputFile, "wb")
     pdfOutput.write(outputStream)
