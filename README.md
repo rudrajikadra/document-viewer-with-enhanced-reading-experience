@@ -14,7 +14,7 @@ A web based application that converts passive reading experience of articles int
 
 
 ## Table of Contents  
-- [Code Structure] (# Code Structure)
+- [Code Structure] (#Code Structure)
 - [Install]
 - [Usage]
 - [References to key external packages used]
