@@ -13,14 +13,12 @@ A web based application that converts passive reading experience of articles int
 > Live Version: http://starblast.herokuapp.com/index
 
 
-## Table of Contents
-
-- [Sections](#sections)-  
-  - Code Structure 
-  - Install
-  - Usage
-  - References
-  - Contributors
+## Table of Contents  
+- [Code Structure](# Code Structure)
+- [Install]
+- [Usage]
+- [References to key external packages used]
+- [Contributors]
 
 ## Code Structure
 ``` bash
