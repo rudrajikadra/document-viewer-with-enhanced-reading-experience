@@ -15,17 +15,12 @@ A web based application that converts passive reading experience of articles int
 
 ## Table of Contents
 
-- [Sections](#sections)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Update](#update)
-  - [Contributing](#contributing)
-- [Documentation](#documentation)
-  - [Scope](#scope) 
-  - [UI](#ui)
-  - [Features](#features)
-  - [Team Managment](#team-management)
-  - [Code Brief Description](#Code-brief-description)
+- [Sections](#sections)-  
+  - Code Structure 
+  - Install
+  - Usage
+  - References
+  - Contributors
 
 ## Code Structure
 ``` bash
@@ -69,6 +64,7 @@ Install XAMPP server from 8.1.6 from https://www.apachefriends.org/download.html
 
 ### Usage 
 Step 1 : Clone this repository
+
 Step 2:
 - Start MySQL Server & Apache from Xampp
 - go to [localhost/phpmyadmin](http://localhost/phpmyadmin/) 
