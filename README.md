@@ -3,6 +3,8 @@
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 > A tool that can augment papers with external information to improve reading experience.
+> Live Version: http://starblast.herokuapp.com/index
+
 
 ## Table of Contents
 
