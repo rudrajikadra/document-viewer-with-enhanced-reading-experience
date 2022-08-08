@@ -60,26 +60,28 @@ A web based application that converts passive reading experience of articles int
 ### Install 
 
 Ideally runs perfectly on Python 3.9.7 with the dependencies listed in requirements.txt file.
-
 using the pip command to install all of the requirements packages  for application 
 ``` bash
 $ pip install -r requirements.txt
 ```
-Also need to install the mySQL database and optionally Apache server ( to see database in browser ).
-
+You will also need MySQL installed in system to run the application and optionally Apache server to interact with database from phpMyAdmin.
+Install XAMPP server from 8.1.6 from https://www.apachefriends.org/download.html
 
 ### Usage 
+Step 1 : Clone this repository
+Step 2:
+- Start MySQL Server & Apache from Xampp
+- go to [localhost/phpmyadmin](http://localhost/phpmyadmin/) 
+- Create a database called 'viewer'
+  -  Click 'Import' from top navigation file
+  -  Under the 'File to Import', browse and select the 'viewer.sql' file present in this repo. This will import all tables into the database
 
-To run application ,first step need to done is to run app.py file in python CLI .
+Step 3 :
+Open terminal inside this repository in your local system and execute the following code (Note : if your python 3+ is configured to python3, replace python below with python3.
 ``` bash 
 python app.py
 ```
-This will give you the localhost url for the website start page 
-After this user can use the website smoothly.
-
-
-### Update
-In this versioning of our base application take place and also keep on updating our main key features. 
+This will start flask and give you the localhost url for the webapp, use the same to load the webapp.
 
 ### References to key external packages used
 - Multirake Python Package [(https://pypi.org/project/multi-rake/)] : For Extracting Keywords
