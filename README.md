@@ -1,8 +1,14 @@
-# STARBLAST VIEWER
+# STARBLAST | Document viewer with enhanced reading expierence
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-> A tool that can augment papers with external information to improve reading experience.
+## Short Description 
+A web based application that converts passive reading experience of articles into an active reading experience by
+- Generating a Short Summary of the uploaded article
+- Automatic pagewise extraction of links embedded in the article
+- Automatic highlighting of key sentences and display most-valued keywords backlinked to google search result
+- Discusiion forum with voting system
+- Allows importing articles either as pdf or directly from URLs 
 
 > Live Version: http://starblast.herokuapp.com/index
 
@@ -22,21 +28,35 @@
   - [Team Managment](#team-management)
   - [Code Brief Description](#Code-brief-description)
 
-## Sections
-### <h1> Document viewer with enhanced reading expierence </h1>
+## Code Structure
+``` bash
+- static----------------# Static Files of the website
+  - css-----------------# styling
+  - fonts---------------# fonts used
+  - highlighted_pdf-----# Stores the highlighted pdf documents
+  - images--------------# Stores images used in website
+  - js------------------# bootstrap and jquery scripts         
+  - pdf-----------------# Stores the pdfs uploaded to the website
 
-
-## Short Description 
- This project is web based application use for increasing user expirence while reading any new paper articles. 
- comprises of many features as mention below 
-
-- <b>short summary </b>
-   - In this using machine learning based technique and text analysis.
-- <b> highlighting keywords </b>
-   - Trained model library is used for  extracting important keywords and also highlight them in pdf with specific color. 
-- <b> discusiion forum </b>
-   - Also provide the discussion forum for user to dicuss among the topics for any articles related.
-
+- templates-------------# HTML pages
+  - 404.html------------# 404 page
+  - company.html--------# The My Teams | to access all the documents uploaded by the team
+  - dashboard.html------# The User's Dashboard | access all the documents uploaded by the suer
+  - index.html----------# landing page of website
+  - login.html----------# login page
+  - pricing.html--------# pricing page
+  - service.html--------# our services offered page
+  - signup.html---------# signup page
+  - viewer.html---------# The main PDF viewer site that the user gets upon clicking on 'view' in dashboard. Displays all features such as Highlighting, Keywords, Discussion Thread
+  
+- app.py----------------# Main Flask Application Code     
+- highlight.py----------# Keyword extraction and content highlighting
+- mysqlconn.py----------# mysql configuration file
+- pdfToSummary.py-------# Generate summary of pdf file
+- pdfToURLS.py----------# Get the embedded URLs of each page ; obtain top keywords and provide random 10
+- urlToPDF.py-----------# Extract information from provided URL, convert to PDF
+- viewer.sql------------# dumped sql file for importing into database when required
+```
 
 ### Install 
 
@@ -62,16 +82,17 @@ After this user can use the website smoothly.
 ### Update
 In this versioning of our base application take place and also keep on updating our main key features. 
 
-### Contributing
-Links Contributing 
-- python text analysis (https://www.analyticsvidhya.com/blog/2018/02/the-different-methods-deal-text-data-predictive-python/)
+### References to key external packages used
 
+### Contributors
+- Rudra Jikandra
+- Shridhar Prabhuraman
+- Vibhu Sharma
+- Yui Chan
 
 ## Documentation
 
 ### Scope
->Phase 1 document 1.2  
-
 The goal of our project is to create a machine-learning assisted web application that improves news & research article reading for usersby providing them features which involve document editing, commenting and sharing with in a private space,along with automatic summarization of text,thereby augmenting a shift from a passive reading process to an interactive and collaborative experience.
 
 ### UI
