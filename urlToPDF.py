@@ -37,27 +37,30 @@ def text_to_pdf(text, filename):
 
 def urlToPDF(url):
 	
-	url = str(url)
-
-	config = use_config()
-	config.set("DEFAULT", "EXTRACTION_TIMEOUT", "0")
-
-	urlContent = trafilatura.fetch_url(url)
-
-	result = trafilatura.extract(urlContent, config=config, include_comments=False, include_tables=False, no_fallback=True)
-	
 	try:
-		title = str(trafilatura.extract_metadata(urlContent).title).replace(" ", "_").replace("\"", "").replace("\/", "").replace("\\","").replace("'", "")
-	except:
-		title = "Title " + str(int(random.randint(1,1000)))
-	
-	title += ".pdf"
-	fileNamePDF = "static//pdf//" + title
+		url = str(url)
 
-	checker = text_to_pdf(result, fileNamePDF)
-	if checker:
-		return str(title)
-	else:
+		config = use_config()
+		config.set("DEFAULT", "EXTRACTION_TIMEOUT", "0")
+
+		urlContent = trafilatura.fetch_url(url)
+
+		result = trafilatura.extract(urlContent, config=config, include_comments=False, include_tables=False, no_fallback=True)
+		
+		try:
+			title = str(trafilatura.extract_metadata(urlContent).title).replace(" ", "_").replace("\"", "").replace("\/", "").replace("\\","").replace("'", "")
+		except:
+			title = "Title " + str(int(random.randint(1,1000)))
+		
+		title += ".pdf"
+		fileNamePDF = "static//pdf//" + title
+
+		checker = text_to_pdf(result, fileNamePDF)
+		if checker:
+			return str(title)
+		else:
+			return ""
+	except:
 		return ""
 
 
