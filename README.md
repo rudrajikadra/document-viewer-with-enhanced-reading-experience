@@ -111,4 +111,4 @@ In this brief discription of each code files has been discuss
 - pdftoURLS.py
   > By using this file we ellobrate the url among the pdf context and give url as output for user further information.
 - urlToPDF.py
-  > IN this file we input the URL link and generate the pdf as ouput so that pdf can be use for further feature as summary and highlights.
+  > In this file we input the URL link and generate the pdf as ouput so that pdf can be use for further feature as summary and highlights.
