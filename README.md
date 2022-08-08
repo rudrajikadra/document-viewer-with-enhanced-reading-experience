@@ -53,16 +53,17 @@ A web based application that converts passive reading experience of articles int
 
 # Install 
 
-Ideally runs perfectly on Python 3.9.7 with the dependencies listed in requirements.txt file.
-using the pip command to install all of the requirements packages  for application 
-``` bash
-$ pip install -r requirements.txt
-```
+Simmply clone this repository. It Ideally runs perfectly on Python 3.9.7 with the dependencies listed in requirements.txt file, make sure you have pip package manager to install all of the requirement packages for application (comes by default with python).
+using the pip command to install all of the requirements packages  for application </br>
+
 You will also need MySQL installed in system to run the application and optionally Apache server to interact with database from phpMyAdmin.
 Install XAMPP server from 8.1.6 from https://www.apachefriends.org/download.html
 
 # Usage 
-Step 1 : Clone this repository
+Step 1 : Clone this repository and run the following command in the terminal. This will install all the required packages.
+``` bash
+$ pip install -r requirements.txt
+```
 
 Step 2:
 - Start MySQL Server & Apache from Xampp
