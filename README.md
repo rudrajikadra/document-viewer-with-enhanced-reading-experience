@@ -11,16 +11,16 @@ A web based application that converts passive reading experience of articles int
 - Allows importing articles either as pdf or directly from URLs 
 
 > Live Version: http://starblast.herokuapp.com/index
-
+> Presentation Slides : https://docs.google.com/presentation/d/1eUCe6Wb_Blz028icqOK9to-SGoSL6GuziaInKKSMvlw/edit?usp=sharing
 
 ## Table of Contents  
 - [Code Structure](#code-structure)
 - [Install](#install)
 - [Usage](#usage)
-- [References](#references)
+- [References to key external packages used](#references-to-key-external-packages-used)
 - [Contributors](#contributors)
 
-### Code Structure
+# Code Structure
 ``` bash
 - static----------------# Static Files of the website
   - css-----------------# styling
@@ -50,7 +50,7 @@ A web based application that converts passive reading experience of articles int
 - viewer.sql------------# dumped sql file for importing into database when required
 ```
 
-### Install 
+# Install 
 
 Ideally runs perfectly on Python 3.9.7 with the dependencies listed in requirements.txt file.
 using the pip command to install all of the requirements packages  for application 
@@ -60,7 +60,7 @@ $ pip install -r requirements.txt
 You will also need MySQL installed in system to run the application and optionally Apache server to interact with database from phpMyAdmin.
 Install XAMPP server from 8.1.6 from https://www.apachefriends.org/download.html
 
-### Usage 
+# Usage 
 Step 1 : Clone this repository
 
 Step 2:
@@ -77,12 +77,12 @@ python app.py
 ```
 This will start flask and give you the localhost url for the webapp, use the same to load the webapp.
 
-### References
+# References to key external packages used
 - Multirake Python Package [(https://pypi.org/project/multi-rake/)] : For Extracting Keywords
 - Trafilatura [https://trafilatura.readthedocs.io/en/latest/usage-python.html ] : For extracting test from URLs
 - Fpdf [ https://pyfpdf.readthedocs.io/en/latest/]: For converting text to PDF
 
-## Contributors
+# Contributors
 ``` bash 
 - Rudra Jikandra : Front End, Back End, Integration                         (26.67% Contribution)
 - Shridhar Prabhuraman : Back End, Integration, Live Configuration          (26.67% Contribution)
