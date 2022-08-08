@@ -10,7 +10,7 @@ A web based application that converts passive reading experience of articles int
 - Discusiion forum with voting system
 - Allows importing articles either as pdf or directly from URLs 
 
-> Live Version: http://starblast.herokuapp.com/index
+> Live Version: http://starblast.herokuapp.com/index </br>
 > Presentation Slides : https://docs.google.com/presentation/d/1eUCe6Wb_Blz028icqOK9to-SGoSL6GuziaInKKSMvlw/edit?usp=sharing
 
 ## Table of Contents  
