@@ -114,7 +114,7 @@
 
         <div style="height: 100%;">
 
-            <div id="top_div" style="height: 50%;">
+            <div id="top_div" style="height: 50%; overflow: scroll;overflow-wrap: break-word;">
                 <h3>Keywords</h3>
                 <div id = keyword>
 
@@ -172,8 +172,9 @@
   	</div>
     <div class="col">
       
-      <input type="button" name="answer" value="Show Summary" class="primary-button" id="summIdButton" onclick="showSummary()" />
-      <input type="button" name="answer" value="Show Keyword Highlights" class="primary-button" id="hiIdButton" onclick="showHighlights()" />
+      {% if session['premium'] == 1 %}
+          <input type="button" name="answer" value="Show Summary" class="primary-button" id="summIdButton" onclick="showSummary()" />
+          <input type="button" name="answer" value="Show Keyword Highlights" class="primary-button" id="hiIdButton" onclick="showHighlights()" />
 
       <div id = "summaryID" style="display: none">
         <h3>Summary</h3>
@@ -181,6 +182,8 @@
             <p>{{result[3]}}</p>
          </div>
       </div>
+      
+      {% endif %}
       
 
     <div class="col">
@@ -408,17 +411,35 @@ function dislike_function(answer_id) {
 
     var y = document.getElementById("hiIdButton");
     var url
-    {% if session['highlight'] == True %}
-    y.value = "Hide Keyword Highlights"
-    y.className = "primary-button clickedButton"
+    
 
-    url = "{{url_for('static',filename='highlighted_pdf/'+result[1])}}"
+
+    // url = "{{url_for('static',filename='pdf/'+result[1])}}"
+
+
+
+    {% if session['premium'] == 1 %}
+        {% if session['highlight'] == True %}
+        y.value = "Hide Keyword Highlights"
+        y.className = "primary-button clickedButton"
+
+        url = "{{url_for('static',filename='highlighted_pdf/'+result[1])}}"
+        {% else %}
+        y.value === "Show Keyword Highlights"
+        y.className = "primary-button"
+
+        url = "{{url_for('static',filename='pdf/'+result[1])}}"
+        {% endif %}
     {% else %}
-    y.value === "Show Keyword Highlights"
-    y.className = "primary-button"
-
-    url = "{{url_for('static',filename='pdf/'+result[1])}}"
+        url = "{{url_for('static',filename='pdf/'+result[1])}}"
     {% endif %}
+
+
+    
+
+
+
+
 
  // const url = "{{url_for('static',filename='pdf/'+result[1])}}"
 let pdfDoc = null,

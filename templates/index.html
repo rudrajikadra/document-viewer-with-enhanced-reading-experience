@@ -73,11 +73,7 @@
     <!-- slider section -->
     <section class=" slider_section ">
       <div id="carouselExampleIndicators" class="carousel slide"  data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">01</li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1">02</li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2">03</li>
-        </ol>
+        
         <div>
                     <div class="rectangle-transparent-1"></div>
                     <div class="rectangle-transparent-2"></div>
@@ -112,12 +108,7 @@
                    A new machine-learning assisted web application that augments a shift from a passive reading process to an interactive and collaborative experience.
                     </p>
                     <div class="btn-box">
-                      <a href="{{url_for('login')}}" class="btn-1">
-                        Upload
-                      </a>
-                      <a href="{{url_for('login')}}" class="btn-2">
-                        Search
-                      </a>
+                      <a class="nav-link" href="{{url_for('signup')}}">Register Now!</a>
                     </div>
                   </div>
 
@@ -130,75 +121,8 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-5 col-md-6">
-                  <div class="slider_detail-box">
-                    <h1>
-                      Start <br/>
-                      Reading with<br/>
-                      Our App
-                    </h1>
-                    <p>
-                   A new machine-learning assisted web application that augments a shift from a passive reading process to an interactive and collaborative experience.
-                    </p>
-                    <div class="btn-box">
-                      <a href="{{url_for('login')}}" class="btn-1">
-                        Upload
-                      </a>
-                      <a href="{{url_for('login')}}" class="btn-2">
-                        Search
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="slider_img-box">
-                    <img src="{{url_for('static',filename='images/slider-img.png')}}" alt=""/>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-5 col-md-6">
-                  <div class="slider_detail-box">
-                    <h1>
-                      Start <br/>
-                      Reading with<br/>
-                      Our App
-                    </h1>
-                    <p>
-                   A new machine-learning assisted web application that augments a shift from a passive reading process to an interactive and collaborative experience.
-                    </p>
-                    <div class="btn-box">
-                      <a href="{{url_for('login')}}" class="btn-1">
-                        Upload
-                      </a>
-                      <a href="{{url_for('login')}}" class="btn-2">
-                        Search
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="slider_img-box">
-                    <img src="{{url_for('static',filename='images/slider-img.png')}}" alt=""/>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="carousel_btn-container">
-          <a class="carousel-control-prev"   role="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" >
-          </a>
-          <a class="carousel-control-next"  role="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-          </a>
-        </div>
+        
       </div>
     </section>
     <!-- end slider section -->
@@ -222,9 +146,7 @@
 
           </p>
           <div>
-            <a href="#">
-              Read More
-            </a>
+            <a class="nav-link" href="{{url_for('services')}}">Services </a>
           </div>
         </div>
       </div>
@@ -287,9 +209,7 @@
         </div>
       </div>
       <div>
-        <a href="#">
-          Read More
-        </a>
+        <a class="nav-link" href="{{url_for('signup')}}">Sign Up Today</a>
       </div>
     </div>
   </section>
@@ -312,9 +232,129 @@
             The maintenance and development of the website need your support.
           </p>
           <div>
-            <a href="#">
-              Read More
-            </a>
+            
+
+<div id="smart-button-container">
+    <div style="text-align: center"><label for="description">Description :  </label><input type="text" name="descriptionInput" id="description" maxlength="127" value=""></div>
+      <p id="descriptionError" style="visibility: hidden; color:red; text-align: center;">Please enter a description</p>
+    <div style="text-align: center"><label for="amount">Add Amount :  </label><input name="amountInput" type="number" id="amount" value="" ><span> AUD</span></div>
+      <p id="priceLabelError" style="visibility: hidden; color:red; text-align: center;">Please enter a price</p>
+    <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
+      <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Please enter an Invoice ID</p>
+    <div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container"></div>
+  </div>
+  <script src="https://www.paypal.com/sdk/js?client-id=AcfEqSQ24YQWhdiVzMcONV6MpgfsZpxzm_Fd4k-1CWlb6po6LhMwjKoHjQSlh9xy4k_bOGvfJYydZCQt&enable-funding=venmo&currency=AUD" data-sdk-integration-source="button-factory"></script>
+  <script>
+  function initPayPalButton() {
+    var description = document.querySelector('#smart-button-container #description');
+    var amount = document.querySelector('#smart-button-container #amount');
+    var descriptionError = document.querySelector('#smart-button-container #descriptionError');
+    var priceError = document.querySelector('#smart-button-container #priceLabelError');
+    var invoiceid = document.querySelector('#smart-button-container #invoiceid');
+    var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
+    var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
+
+    var elArr = [description, amount];
+
+    if (invoiceidDiv.firstChild.innerHTML.length > 1) {
+      invoiceidDiv.style.display = "block";
+    }
+
+    var purchase_units = [];
+    purchase_units[0] = {};
+    purchase_units[0].amount = {};
+
+    function validate(event) {
+      return event.value.length > 0;
+    }
+
+    paypal.Buttons({
+      style: {
+        color: 'blue',
+        shape: 'pill',
+        label: 'paypal',
+        layout: 'vertical',
+        
+      },
+
+      onInit: function (data, actions) {
+        actions.disable();
+
+        if(invoiceidDiv.style.display === "block") {
+          elArr.push(invoiceid);
+        }
+
+        elArr.forEach(function (item) {
+          item.addEventListener('keyup', function (event) {
+            var result = elArr.every(validate);
+            if (result) {
+              actions.enable();
+            } else {
+              actions.disable();
+            }
+          });
+        });
+      },
+
+      onClick: function () {
+        if (description.value.length < 1) {
+          descriptionError.style.visibility = "visible";
+        } else {
+          descriptionError.style.visibility = "hidden";
+        }
+
+        if (amount.value.length < 1) {
+          priceError.style.visibility = "visible";
+        } else {
+          priceError.style.visibility = "hidden";
+        }
+
+        if (invoiceid.value.length < 1 && invoiceidDiv.style.display === "block") {
+          invoiceidError.style.visibility = "visible";
+        } else {
+          invoiceidError.style.visibility = "hidden";
+        }
+
+        purchase_units[0].description = description.value;
+        purchase_units[0].amount.value = amount.value;
+
+        if(invoiceid.value !== '') {
+          purchase_units[0].invoice_id = invoiceid.value;
+        }
+      },
+
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: purchase_units,
+        });
+      },
+
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (orderData) {
+
+          // Full available details
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+          // Show a success message within this page, e.g.
+          const element = document.getElementById('paypal-button-container');
+          element.innerHTML = '';
+          element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+          // Or go to another URL:  actions.redirect('thank_you.html');
+          
+        });
+      },
+
+      onError: function (err) {
+        console.log(err);
+      }
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+  </script>
+
+
+
           </div>
         </div>
       </div>

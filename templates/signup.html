@@ -52,6 +52,35 @@
                     <label class="form-label" for="company">Company Code</label>
                   </div>
 
+
+<br>
+<div style="text-align: center;">
+<h4 >Start your free trial for pro version!</h4>
+<p>Mention your username in reference/description of payment.</p>
+</div>
+<div id="paypal-button-container-P-2MD365639A512511TMLYHTIQ"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AcfEqSQ24YQWhdiVzMcONV6MpgfsZpxzm_Fd4k-1CWlb6po6LhMwjKoHjQSlh9xy4k_bOGvfJYydZCQt&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'blue',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-2MD365639A512511TMLYHTIQ'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-2MD365639A512511TMLYHTIQ'); // Renders the PayPal button
+</script>
+
+
                   <div class="pt-1 mb-4">
                     <button class="btn btn-dark btn-lg btn-block" type="submit">Register</button>
                   </div>

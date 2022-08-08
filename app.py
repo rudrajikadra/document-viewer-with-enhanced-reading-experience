@@ -8,6 +8,7 @@ from highlight import highlightOnPDF as hi
 import os, json
 
 
+
 app = Flask (__name__)
 
 app.secret_key = 'secret'
@@ -48,11 +49,14 @@ def login():
         cur.execute (sql, val)
         result = cur.fetchone ()
 
+        print(result)
+        
         if result:
             session['loggedin'] = True
             session['id'] = result[0]
             session['highlight'] = False
             session['username'] = result[1]
+            session['premium'] = result[4]
             return redirect(url_for('company',id = session['id'] ))
         else:
             msg = 'Incorrect username / password !'
@@ -88,6 +92,8 @@ def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('username', None)
+    session.pop('highlight', None)
+    session.pop('premium', None)
     return redirect(url_for('login' ))
 
 
@@ -98,6 +104,8 @@ def page_not_found():
 
 @app.route ('/dashboard/<id>', methods=['GET', 'POST'])
 def dashboard(id):
+
+    print("&&&****************** ", session)
 
     if session.get('loggedin') is None:
         return redirect(url_for('login'))
@@ -189,6 +197,7 @@ def viewer(id, did):
         cur.execute (sql, val)
         mydb.commit ()
         #redirect(url_for('dashboard',id = session['id'] ,did =did))
+
 
     cur = mydb.cursor ()
     sql = "select cid,date,doc_id,user_id,comment,votes,uname from comments join user where user_id = uid and doc_id = " + str(did) + " ORDER BY votes Desc,date Asc;"
