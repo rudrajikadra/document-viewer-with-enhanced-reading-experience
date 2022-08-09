@@ -88,5 +88,5 @@ This will start flask and give you the localhost url for the webapp, use the sam
 - Rudra Jikandra : Front End, Back End, Integration                         (26.67% Contribution)
 - Shridhar Prabhuraman : Back End, Integration, Live Configuration          (26.67% Contribution)
 - Vibhu Sharma : Summary Generation, Keyword Extraction and all ML features (26.67% Contribution)
-- Yui Chan : Highlighting Feature, Documentation                            (20.00% Contribution)
+- Yuechuan Li : Highlighting Feature, Documentation                            (20.00% Contribution)
 ```
